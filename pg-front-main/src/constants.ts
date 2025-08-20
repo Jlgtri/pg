@@ -36,4 +36,4 @@ export const BONUS_ON_EACH_CHECK_IN: Record<number, number> = {
 export const TOTAL_SNAPSHOTS = 5;
 
 export const PROJECT_START_DATE = Math.floor(Date.parse(START_DATE_INPUT) / 1000);
-export const PROJECT_DONATION_CHECK_IN_AFTER = 2;
+export const PROJECT_DONATION_CHECK_IN_AFTER = 1;

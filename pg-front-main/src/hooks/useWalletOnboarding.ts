@@ -88,12 +88,11 @@ export const useWalletOnboarding = ({
 
       // Save wallet address in global state if not already stored
       if (address && state.walletAddress !== address) {
+        setUserInfo({ walletAddress: address });
         (async () => {
           for (var connector of connectors) {
             if (await connector.isAuthorized()) {
-              setUserInfo({
-                wallet: connector.name, walletAddress: address
-              });
+              setUserInfo({ wallet: connector.name, walletAddress: address });
               break;
             }
           }
@@ -134,7 +133,7 @@ export const useWalletOnboarding = ({
     isConnected && !!address && state.connectionStatus !== "not_connected";
 
   const { data: snapshotsListData, isSuccess } = useSnapshotsList(
-    address,
+    state.walletAddress,
     shouldFetchSnapshots
   );
 
@@ -152,7 +151,6 @@ export const useWalletOnboarding = ({
         );
 
         const dist = found?.holdingDistribution?.[0];
-
         return {
           snapshotNumber: snapNum,
           date: snapshotDateByNumber(
