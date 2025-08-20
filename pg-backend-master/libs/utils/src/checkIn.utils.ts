@@ -3,8 +3,8 @@ import CONFIG from 'config';
 
 export const getStageOfCheckIn = () => {
   const diffSeconds = (Date.now() - Date.parse(CONFIG.PROJECT.START_DATE)) / 1000;
-  const stage = Math.floor(diffSeconds / SECONDS_BETWEEN_CHECK_IN) + 1;
-  return stage % TOTAL_CHECK_INS;
+  const stage = Math.floor(diffSeconds / SECONDS_BETWEEN_CHECK_IN);
+  return (stage % TOTAL_CHECK_INS) + 1;
 };
 
 // TODO change to diff days

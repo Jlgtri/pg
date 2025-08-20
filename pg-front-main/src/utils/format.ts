@@ -107,6 +107,6 @@ export function getSnapshotDateString(
 
 export const computeCurrentSnapshot = (): number => {
   const diffSeconds = Date.now() / 1000 - PROJECT_START_DATE;
-  const stage = Math.floor(diffSeconds / TIME_BETWEEN_SNAPSHOTS_SEC) + 1;
-  return stage % TOTAL_SNAPSHOTS;
+  const stage = Math.floor(diffSeconds / TIME_BETWEEN_SNAPSHOTS_SEC);
+  return (stage % TOTAL_SNAPSHOTS) + 1;
 };
