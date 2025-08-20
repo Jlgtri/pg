@@ -111,32 +111,32 @@ export const ConnectClaimButton: React.FC<{
                     );
 
                   case "wallet_connected":
-                    //   return (
-                    //     <button
-                    //       onClick={() => {
-                    //         openModal("connection");
-                    //         scrollToCountdown();
-                    //       }}
-                    //       type="button"
-                    //     >
-                    //       <ButtonBig text="connect twitter" type={type} />
-                    //     </button>
-                    //   );
+                    return (
+                      <button
+                        onClick={() => {
+                          openModal("connection");
+                          scrollToCountdown();
+                        }}
+                        type="button"
+                      >
+                        <ButtonBig text="connect twitter" type={type} />
+                      </button>
+                    );
 
-                    // case "twitter_connected":
-                    //   return (
-                    //     <button
-                    //       onClick={() => {
-                    //         openModal("connection");
-                    //         scrollToCountdown();
-                    //       }}
-                    //       type="button"
-                    //     >
-                    //       <ButtonBig text="CHECK FOLLOW" type={type} />
-                    //     </button>
-                    //   );
+                  case "twitter_connected":
+                    return (
+                      <button
+                        onClick={() => {
+                          openModal("connection");
+                          scrollToCountdown();
+                        }}
+                        type="button"
+                      >
+                        <ButtonBig text="CHECK FOLLOW" type={type} />
+                      </button>
+                    );
 
-                    // case "post_checked":
+                  case "post_checked":
                     return (
                       <button
                         onClick={async () => {
