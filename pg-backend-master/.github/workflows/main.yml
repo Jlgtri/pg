@@ -1,0 +1,103 @@
+name: Deploy pege-backend
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #   types:
+  #     - closed
+  #   branches:
+  #     - main
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.tag.outputs.new_version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Логин в Gcore Registry
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | sudo docker login registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/ -u "${{ secrets.DOCKER_USER }}" --password-stdin
+          
+      - name: Определение версии тега
+        id: tag  
+        run: |
+          # First check if authentication works
+          RESPONSE=$(curl -s -u "${{ secrets.DOCKER_USER }}:${{ secrets.DOCKER_PASSWORD }}" \
+          "https://registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/backend/tags/list")
+          
+          echo "Raw response: $RESPONSE"
+          
+          # If response is empty or invalid, start with 1.0.0
+          if [[ -z "$RESPONSE" ]]; then
+            VERSION="1.0.0"
+          else
+            # Try to extract version tags
+            VERSION=$(echo "$RESPONSE" | jq -r '.tags[] | select(test("^[0-9]+\\.[0-9]+\\.[0-9]+$"))' | sort -V | tail -1)
+            
+            # If no version found, start with 1.0.0
+            if [[ -z "$VERSION" ]]; then
+              VERSION="1.0.0"
+            else
+              # Increment patch version
+              VERSION=$(echo "$VERSION" | awk -F. '{$NF++; print}' OFS=.)
+            fi
+          fi
+          
+          echo "new_version=$VERSION"
+          echo "new_version=$VERSION" >> $GITHUB_ENV
+          echo "new_version=$VERSION" >> $GITHUB_OUTPUT
+          
+      - name: Сборка Docker-образа
+        run: |
+          sudo docker build -t registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/backend:${{ env.new_version }} .
+
+      - name: Отправка Docker-образа
+        run: |
+          sudo docker push registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/backend:${{ env.new_version }}
+
+      - name: Удаление предыдущего образа
+        if: steps.get-previous-tag.outputs.prev_version != ''
+        run: |
+          echo "Удаление предыдущего тега: ${{ steps.get-previous-tag.outputs.prev_version }}"
+          curl -X DELETE -u ${{ secrets.DOCKER_USER }}:${{ secrets.DOCKER_PASSWORD }} \
+          "https://registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/backend/manifests/$( \
+            curl -s -u ${{ secrets.DOCKER_USER }}:${{ secrets.DOCKER_PASSWORD }} \
+            -H "Accept: application/vnd.docker.distribution.manifest.v2+json" \
+            "https://registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/backend/manifests/${{ steps.get-previous-tag.outputs.prev_version }}" \
+            | jq -r '.config.digest')"
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    env:
+      new_version: ${{ needs.build-and-push.outputs.new_version }}
+    steps:
+      # - name: Установка kubectl
+      #   run: |
+      #     curl -LO "https://dl.k8s.io/release/$(curl -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+      #     chmod +x kubectl
+      #     sudo mv kubectl /usr/local/bin/
+  
+      - name: Настройка подключения к кластеру (через kubeconfig)
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" > kubeconfig
+          export KUBECONFIG=$PWD/kubeconfig
+  
+      - name: Проверка версии перед деплоем
+        run: echo "new_version=${{ env.new_version }}"
+  
+      - name: Обновление Deployment в Kubernetes
+        env:
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig
+        run: |
+          kubectl set image deployment/backend-api backend-api=registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/backend:${{ env.new_version }} -n pege-prod
+          kubectl rollout restart deployment/backend-api -n pege-prod
+          kubectl set image deployment/backend-rewards-handler backend-rewards-handler=registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/backend:${{ env.new_version }} -n pege-prod
+          kubectl rollout restart deployment/backend-rewards-handler -n pege-prod
+          kubectl set image deployment/backend-x-handler backend-x-handler=registry.darmstadt-1.cloud.gcore.dev/655514-839889-120-backend/backend:${{ env.new_version }} -n pege-prod
+          kubectl rollout restart deployment/backend-x-handler -n pege-prod

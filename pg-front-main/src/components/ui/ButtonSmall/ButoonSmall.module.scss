@@ -1,0 +1,58 @@
+.button {
+  width: 100%;
+  display: flex;
+  aspect-ratio: 295 / 67;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .buttonSmallText {
+    font-size: 25px;
+    font-weight: 800;
+    z-index: 1;
+    pointer-events: none;
+    color: var(--indigo-blue);
+
+    @include for-tablet {
+      font-size: 39px;
+    }
+
+    @include for-mobile {
+      font-size: 25px;
+    }
+  }
+
+  .buttonSmallBG {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 100%;
+    --stroke-color: #071949;
+    --fill-color: #59d0e4;
+
+    &:hover {
+      --fill-color: #5d3d9a;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    .buttonSmallBG {
+      --fill-color: #717cd2;
+    }
+  }
+
+  &:hover:not(.disabled),
+  &:focus:not(.disabled) {
+    .buttonSmallBG {
+      --fill-color: #5d3d9a;
+    }
+
+    .buttonSmallText {
+      color: var(--white);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.titleWrapper {
+  display: inline-block;
+  padding: 0px 20px 0 16px;
+  font-size: 84px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+
+  span {
+    color: var(--light-pink);
+    background-color: var(--violet);
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 20px -4px 0 6px var(--violet), -8px -4px 0 6px var(--violet);
+    box-decoration-break: clone;
+  }
+
+  @media (max-width: 1700px) {
+    font-size: 70px;
+  }
+
+  @include for-tablet {
+    font-size: 65px;
+  }
+
+  @include for-mobile {
+    font-size: 44px;
+    line-height: 1.2;
+  }
+}

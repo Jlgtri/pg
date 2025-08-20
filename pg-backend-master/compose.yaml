@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14.2
+    environment:
+      - POSTGRES_DB=pege_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 10220:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - '8081:8081'
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - 10063:6379
+    volumes:
+      - redis_data:/var/lib/redis
+
+volumes:
+  postgres_data:
+  redis_data:

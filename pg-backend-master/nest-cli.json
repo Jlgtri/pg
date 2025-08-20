@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "monorepo": true,
+  "root": "src",
+  "projects": {
+    "api": {
+      "type": "application",
+      "root": "apps/api",
+      "entryFile": "main",
+      "sourceRoot": "apps/api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api/tsconfig.app.json"
+      }
+    },
+    "x-handler": {
+      "type": "application",
+      "root": "apps/x-handler",
+      "entryFile": "main",
+      "sourceRoot": "apps/x-handler/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/x-handler/tsconfig.app.json"
+      }
+    },
+    "rewards-handler": {
+      "type": "application",
+      "root": "apps/rewards-handler",
+      "entryFile": "main",
+      "sourceRoot": "apps/rewards-handler/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/rewards-handler/tsconfig.app.json"
+      }
+    },
+    "db": {
+      "type": "library",
+      "root": "libs/db",
+      "entryFile": "index",
+      "sourceRoot": "libs/db/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/db/tsconfig.lib.json"
+      }
+    },
+    "constants": {
+      "type": "library",
+      "root": "libs/constants",
+      "entryFile": "index",
+      "sourceRoot": "libs/constants/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/constants/tsconfig.lib.json"
+      }
+    },
+    "utils": {
+      "type": "library",
+      "root": "libs/utils",
+      "entryFile": "index",
+      "sourceRoot": "libs/utils/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/utils/tsconfig.lib.json"
+      }
+    },
+    "twitterapi-io": {
+      "type": "library",
+      "root": "libs/twitterapi-io",
+      "entryFile": "index",
+      "sourceRoot": "libs/twitterapi-io/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/twitterapi-io/tsconfig.lib.json"
+      }
+    },
+    "microservice": {
+      "type": "library",
+      "root": "libs/microservice",
+      "entryFile": "index",
+      "sourceRoot": "libs/microservice/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/microservice/tsconfig.lib.json"
+      }
+    },
+    "goldrush": {
+      "type": "library",
+      "root": "libs/goldrush",
+      "entryFile": "index",
+      "sourceRoot": "libs/goldrush/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/goldrush/tsconfig.lib.json"
+      }
+    },
+    "redis": {
+      "type": "library",
+      "root": "libs/redis",
+      "entryFile": "index",
+      "sourceRoot": "libs/redis/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/redis/tsconfig.lib.json"
+      }
+    },
+    "telegram": {
+      "type": "library",
+      "root": "libs/telegram",
+      "entryFile": "index",
+      "sourceRoot": "libs/telegram/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/telegram/tsconfig.lib.json"
+      }
+    },
+    "debank": {
+      "type": "library",
+      "root": "libs/debank",
+      "entryFile": "index",
+      "sourceRoot": "libs/debank/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/debank/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}

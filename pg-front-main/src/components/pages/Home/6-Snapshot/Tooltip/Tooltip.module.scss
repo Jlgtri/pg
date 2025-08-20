@@ -1,0 +1,44 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background-color: #071949;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 99;
+}
+
+.beak {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #071949;
+  transform: rotate(45deg);
+  position: absolute;
+  top: calc(50% - 5px);
+  left: -5px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-wrap: nowrap;
+}
+
+.key {
+  color: #9da1ff;
+}
+
+.value {
+  color: #fff;
+}

@@ -1,0 +1,984 @@
+.wrapper {
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1920px;
+  padding: 120px 0 0;
+
+  .textWrapper {
+    order: 1;
+  }
+
+  .imageWrapper {
+    order: 0;
+  }
+
+  .countdownWrapper {
+    order: 2;
+  }
+
+  @media screen and (max-width: 1650px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 120px;
+    padding-top: 50px;
+
+    .textWrapper {
+      order: 1;
+    }
+
+    .imageWrapper {
+      order: 0;
+    }
+
+    .countdownWrapper {
+      order: 2;
+    }
+  }
+
+  @include for-tablet {
+    padding-bottom: 200px;
+    padding-top: 32px;
+    align-items: flex-start;
+
+    .textWrapper {
+      order: 0;
+    }
+
+    .imageWrapper {
+      order: 1;
+    }
+  }
+
+  @include for-mobile {
+    padding-bottom: 100px;
+    padding-top: 32px;
+  }
+}
+
+.imageTextWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  flex: 0 1 70%;
+  position: relative;
+  z-index: 25;
+
+  @include for-tablet {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.textWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 2 1 40%;
+  gap: 32px;
+  padding-top: 6%;
+
+  @include for-tablet {
+    flex: 0 2 100%;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+.imageWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 6 34%;
+  position: relative;
+
+  @include for-tablet {
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+}
+
+.standWrapper {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-10%);
+  position: relative;
+
+  @include for-tablet {
+    transform: none;
+    width: 60%;
+  }
+}
+
+.stand {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  img {
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+  }
+}
+
+.headWrapper {
+  position: absolute;
+  width: 25%;
+  height: auto;
+  top: 1.5%;
+  right: 13%;
+  animation: swingHead 5s ease-in-out infinite;
+  transform-origin: top center;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @include for-tablet {
+    width: 18%;
+    top: 11.5%;
+    right: 15%;
+  }
+}
+
+@keyframes swingHead {
+  0% {
+    transform: scaleY(1) scale(1);
+  }
+
+  25% {
+    transform: scaleY(0.9) scale(0.9);
+  }
+
+  50% {
+    transform: scaleY(1) scale(1);
+  }
+
+  75% {
+    transform: scaleY(0.8) scale(1.1);
+  }
+
+  100% {
+    transform: scaleY(1) scale(1);
+  }
+}
+
+.lightWrapper {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  bottom: 38%;
+  left: -3%;
+  opacity: 0;
+  animation: shineLight 3s ease-in infinite;
+  z-index: 40;
+  pointer-events: none;
+
+  .frontLight {
+    width: 100%;
+    height: auto;
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .backLight {
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    position: absolute;
+  }
+
+  @include for-tablet {
+    width: 65.5%;
+    bottom: 29%;
+    left: 14.1%;
+  }
+}
+
+@keyframes shineLight {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.minimizeGap > h1:first-child {
+  margin-bottom: 0;
+
+  @media screen and (max-width: 1420px) {
+    margin-bottom: 16px;
+  }
+}
+
+.countdownWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  flex: 1 2 40%;
+  padding-top: 5%;
+
+  @media screen and (max-width: 1650px) {
+    align-items: center;
+  }
+}
+
+.buttonWrapper {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  @include for-mobile {
+    height: 50px;
+    width: 250px;
+  }
+}
+
+.countdownBgWrapper {
+  width: 110%;
+  max-width: 644px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  right: calc(47% + 20px);
+  z-index: -1;
+  transform: scaleX(1.2) scaleY(1.3) translate(35%, -30%);
+
+  @media screen and (max-width: 1650px) {
+    right: 47%;
+  }
+
+  @media screen and (max-width: 1420px) {
+    top: 7%;
+    width: 100%;
+    max-width: 700px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include for-tablet {
+    top: 0;
+    right: 44%;
+  }
+
+  @include for-mobile {
+    top: 10%;
+    overflow-x: hidden;
+    max-width: 360px;
+    min-width: 320px;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1.2);
+  }
+}
+
+.parachute {
+  width: 280px;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  right: -20px;
+  top: -100px;
+  pointer-events: none;
+
+  z-index: 1;
+
+  @media screen and (max-width: 1650px) {
+    left: 100%;
+  }
+
+  @include for-tablet {
+    width: 267px;
+    top: -40%;
+    // right: 10%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    transform: translateX(40%);
+    width: 200px;
+  }
+
+  @include for-mobile {
+    width: 160px;
+    top: 40px;
+    left: unset;
+    right: -20%;
+    // top: -160px;
+    // transform: translateX(20%);
+  }
+}
+
+.timerWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.countdown {
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  &.countdownLater {
+    color: #59d0e4;
+  }
+
+  &.countdownNow {
+    color: #9da1ff;
+  }
+
+  &.countdownSoon {
+    color: #ff3f9f;
+  }
+}
+
+.countdownTimeWrpapper {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdownValue {
+  color: inherit;
+  text-align: center;
+  font-size: 153.415px;
+  font-weight: 800;
+  line-height: 80%;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+
+  @media screen and (max-width: 1420px) {
+    font-size: 117px;
+  }
+
+  @include for-mobile {
+    font-size: 53px;
+  }
+}
+
+.countdownSubText {
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 1420px) {
+    font-size: 14px;
+  }
+
+  @include for-mobile {
+    font-size: 14px;
+  }
+}
+
+.countdownSeparator {
+  font-size: 153.415px;
+  font-weight: 800;
+  line-height: 80%;
+  color: inherit;
+  opacity: 0.2;
+
+  @media screen and (max-width: 1420px) {
+    font-size: 117px;
+  }
+
+  @include for-mobile {
+    font-size: 53px;
+  }
+}
+
+.countdownTitle {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+
+  @include for-tablet {
+    font-size: 24px;
+  }
+
+  @include for-mobile {
+    font-size: 15px;
+    padding-bottom: 10px;
+  }
+}
+
+.countdownText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @include for-tablet {
+    width: 409px;
+  }
+
+  @include for-mobile {
+    width: 260px;
+  }
+}
+
+.messageWrapper {
+  align-self: center;
+  display: flex;
+  width: 534px;
+  height: 145px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+
+  @media screen and (max-width: 1420px) {
+    // height: 111px;
+  }
+
+  @include for-tablet {
+    height: 111px;
+    font-size: 24px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  @include for-mobile {
+    height: 71px;
+    font-size: 14px;
+    width: 100%;
+    left: 0;
+  }
+}
+
+.buttonBigBGWrapper {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path {
+      fill: #101a5c;
+    }
+  }
+}
+
+.message {
+  color: #fff;
+}
+
+.message_blue {
+  color: var(--blue);
+}
+
+.balanceWrapper {
+  padding: 18px 18px 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 50px;
+    height: 50px;
+
+    @include for-mobile {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .balanceText {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 800;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    &.balanceTextAnimating {
+      color: #3ecf8e; // green
+      transform: scale(1.2);
+    }
+
+    @include for-mobile {
+      font-size: 18px;
+    }
+  }
+
+  @include for-tablet {
+    height: 100%;
+  }
+
+  @include for-mobile {
+    height: 100%;
+  }
+}
+
+.coinIcon {
+  width: 20%;
+  height: auto;
+  position: absolute;
+  z-index: 22;
+  left: 0;
+  top: 60%;
+  transform: translateX(-60%) scaleX(-1) rotate(25deg);
+  animation: coinIconFly 10s ease-in-out infinite;
+
+  &.coinIconRight {
+    display: none;
+    width: 30%;
+    left: 90%;
+    top: 20%;
+    transform: none;
+
+    @include for-tablet {
+      display: block;
+    }
+
+    @include for-mobile {
+      display: none;
+    }
+  }
+}
+
+.pegeFloating {
+  animation: parachutePendulum 10s ease-in-out infinite;
+  // gentleBob 4s ease-in-out infinite;
+}
+
+.parachuteWrapper {
+  width: 280px;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: -220px;
+  right: -40px;
+  z-index: 99;
+  animation: parachuteBob 8s ease-in-out infinite;
+
+  @media screen and (max-width: 1650px) {
+    right: 10%;
+  }
+
+  @include for-tablet {
+    right: 10%;
+  }
+}
+
+/* Exaggerated side-to-side motion */
+@keyframes parachutePendulum {
+  0% {
+    transform: translateX(-10px) rotate(-4deg);
+  }
+  25% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(10px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-10px) rotate(-4deg);
+  }
+}
+
+@keyframes parachuteBob {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.snapshotsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  gap: 1.9%;
+  position: absolute;
+  top: -9.5%;
+  left: 0;
+  width: 71%;
+  z-index: 11;
+  perspective: 200%;
+  transform-style: preserve-3d;
+
+  @include for-tablet {
+    top: 0;
+    width: 93%;
+    gap: 2.1%;
+  }
+}
+
+.snapshot {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1.1em;
+  line-height: 1.2;
+  font-family: "Riffic Free";
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @media screen and (max-width: 1650px) {
+    font-size: 1.1em;
+  }
+
+  @include for-tablet {
+    font-size: 4dvw;
+    width: 50%;
+  }
+
+  &_1 {
+    transform: rotateY(17deg) skewY(10deg);
+  }
+
+  &_2 {
+    transform: rotateY(25deg) skewY(8deg);
+  }
+
+  &_3 {
+    transform: rotateY(20deg) skewY(3.5deg);
+  }
+
+  &_4 {
+    transform: rotateY(22deg) skewY(1deg);
+  }
+
+  &_5 {
+    transform: rotateY(17deg) skewY(-3deg);
+  }
+}
+
+.tooltip {
+  transform: none !important;
+  transform-style: flat;
+  position: absolute;
+  right: 0%;
+  top: 20%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.3s ease-in-out;
+
+  @include for-tablet {
+    display: none;
+  }
+
+  @include for-mobile {
+    right: 20%;
+  }
+}
+
+.singleSnapshotWrapper {
+  position: relative;
+  width: 100%;
+  height: 14.7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @include for-tablet {
+    height: 14.5%;
+  }
+}
+
+.singleSnapshotWrapper:hover .tooltip,
+.singleSnapshotWrapper:focus .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.snapshotTransition {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  pointer-events: none;
+
+  > div {
+    width: 330%;
+    top: -98%;
+    left: -25%;
+    height: auto;
+    position: absolute;
+
+    @include for-tablet {
+      width: 190%;
+      top: -98%;
+      left: 7%;
+    }
+  }
+}
+
+.snapshot_1_transition {
+  transform: rotateY(17deg) skewY(10deg) scale(1.03, 0.95) translate(0.5%, -5%);
+}
+
+.snapshot_2_transition {
+  transform: rotateY(25deg) skewY(8deg) scale(1.07, 0.91) translate(0.5%, -5%);
+
+  @include for-tablet {
+    transform: rotateY(25deg) skewY(8deg) scale(1.07, 0.9) translate(0.5%, -3%);
+  }
+}
+
+.snapshot_3_transition {
+  transform: rotateY(20deg) skewY(3.5deg) scale(1.05, 0.91) translate(0.5%, -4%);
+
+  @include for-tablet {
+    transform: rotateY(20deg) skewY(3.5deg) scale(1.05, 0.88)
+      translate(0.5%, -3%);
+  }
+}
+
+.snapshot_4_transition {
+  transform: rotateY(22deg) skewY(1deg) scale(1.05, 0.9) translate(0.5%, -5%);
+}
+
+.snapshot_5_transition {
+  transform: rotateY(17deg) skewY(-3deg) scale(1.05, 0.91) translate(0.5%, -5%);
+
+  @include for-tablet {
+    transform: rotateY(17deg) skewY(-3deg) scale(1.02, 0.9) translate(0.6%, -3%);
+  }
+}
+
+.snapshotDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-transform: none;
+  opacity: 0;
+  animation: fadeInDetails 0.5s ease-in 0.2s forwards;
+  will-change: opacity;
+  backface-visibility: hidden;
+}
+
+.snapshotDetailRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7em; // slightly smaller than default
+  line-height: 1.2;
+  text-wrap: nowrap;
+  text-transform: uppercase;
+}
+
+.snapshotDetailKey {
+  font-weight: 700;
+}
+
+.snapshotDetailValue {
+  font-weight: 400;
+}
+
+@keyframes fadeInDetails {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.snapshotSimple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  animation: fadeInDetails 0.5s ease-in forwards 0.5s;
+  will-change: opacity;
+  backface-visibility: hidden;
+}
+
+.snapshotTransition > div {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.coinFlyWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 200;
+
+  @media screen and (max-width: 1650px) {
+    right: -33%;
+    top: -5%;
+  }
+}
+
+.coinFly {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  animation: coinFly 1s ease-in infinite;
+  opacity: 0;
+
+  @media (max-width: 1650px) {
+    animation-name: coinFlySmall;
+  }
+
+  @media (max-width: 1250px) {
+    animation-name: coinFlyTablet;
+  }
+
+  @media (max-width: 720px) {
+    animation-name: coinFlyMobile;
+  }
+
+  @include for-mobile {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@keyframes coinFly {
+  0% {
+    transform: translate(33vw, 0vh) scale(2) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(1vw, 25vh) scale(0.6) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1650px) {
+  @keyframes coinFlySmall {
+    0% {
+      transform: translate(33vw, 15vh) scale(1.6) rotate(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(1vw, 20vh) scale(0.6) rotate(720deg);
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  @keyframes coinFlyTablet {
+    0% {
+      transform: translate(-20vw, 00vh) scale(1.6) rotate(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0vw, 22vh) scale(0.6) rotate(720deg);
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  @keyframes coinFlyMobile {
+    0% {
+      transform: translate(40vw, 00vh) scale(1.6) rotate(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0vw, 22vh) scale(0.6) rotate(720deg);
+      opacity: 0;
+    }
+  }
+}

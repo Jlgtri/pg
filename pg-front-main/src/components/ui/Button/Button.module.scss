@@ -1,0 +1,97 @@
+.componentButtonWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 33px;
+  line-height: 100%;
+
+  @media (max-width: 1700px) {
+    font-size: 27px;
+  }
+
+  @include for-tablet {
+    font-size: 27px;
+  }
+
+  @include for-mobile {
+    font-size: 18px;
+  }
+}
+
+.button {
+  aspect-ratio: 300/65;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: var(--violet);
+  font-size: inherit;
+
+  @include for-mobile {
+    align-items: flex-end;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .text {
+    z-index: 1;
+    color: var(--dark-blue);
+    font-weight: 700;
+    text-align: center;
+
+    @include for-tablet {
+      font-size: 25px;
+    }
+
+    @include for-mobile {
+      line-height: 24px;
+      font-size: 18px;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover:not(.disabled) {
+    .buttonSmallBG,
+    .buttonSmooth {
+      --fill-color: var(--violet);
+      --stroke-color: #000;
+    }
+
+    .buttonSmallBGPrimary,
+    .buttonSmoothPrimary {
+      --fill-color: var(--violet);
+      --stroke-color: var(--dark-blue);
+    }
+
+    .text {
+      color: var(--white);
+    }
+  }
+}
+
+.buttonSmallBG,
+.buttonSmooth {
+  --fill-color: var(--blue);
+  --stroke-color: #000;
+}
+
+.buttonSmallBGPrimary,
+.buttonSmoothPrimary {
+  --fill-color: var(--blue);
+  --stroke-color: var(--dark-blue);
+}

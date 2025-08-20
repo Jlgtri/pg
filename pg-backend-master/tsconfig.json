@@ -1,0 +1,85 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "target": "es2022",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types",
+      "./config"
+    ],
+    "paths": {
+      "@libs/db": [
+        "libs/db/src"
+      ],
+      "@libs/db/*": [
+        "libs/db/src/*"
+      ],
+      "@libs/constants": [
+        "libs/constants/src"
+      ],
+      "@libs/constants/*": [
+        "libs/constants/src/*"
+      ],
+      "@libs/farm-utils": [
+        "libs/farm-utils/src"
+      ],
+      "@libs/farm-utils/*": [
+        "libs/farm-utils/src/*"
+      ],
+      "@libs/twitterapi-io/*": [
+        "libs/twitterapi-io/src/*"
+      ],
+      "@lib/microservice": [
+        "libs/microservice/src"
+      ],
+      "@lib/microservice/*": [
+        "libs/microservice/src/*"
+      ],
+      "@libs/goldrush/*": [
+        "libs/goldrush/src/*"
+      ],
+      "@libs/utils": [
+        "libs/utils/src"
+      ],
+      "@libs/utils/*": [
+        "libs/utils/src/*"
+      ],
+      "@libs/cache": [
+        "libs/cache/src"
+      ],
+      "@libs/cache/*": [
+        "libs/cache/src/*"
+      ],
+      "@libs/telegram": [
+        "libs/telegram/src"
+      ],
+      "@libs/telegram/*": [
+        "libs/telegram/src/*"
+      ],
+      "@libs/debank": [
+        "libs/debank/src"
+      ],
+      "@libs/debank/*": [
+        "libs/debank/src/*"
+      ],
+    }
+  }
+}

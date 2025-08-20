@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+  width: 100%;
+
+  .titleWrapper {
+    font-size: 40px;
+    line-height: 127.8%;
+
+    @include for-tablet {
+      font-size: 34px;
+      line-height: 40px;
+    }
+
+    @include for-mobile {
+      font-size: 20px;
+      line-height: 25px;
+    }
+  }
+
+  .textWrapper {
+    font-size: 30px;
+    line-height: 120%;
+    white-space: pre-line;
+
+    @include for-tablet {
+      font-size: 21px;
+      line-height: 25px;
+    }
+
+    @include for-mobile {
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+}
+
+.word {
+  color: #fff;
+}
+
+.highlight {
+  color: var(--blue);
+}

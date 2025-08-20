@@ -1,0 +1,26 @@
+@use "mixins";
+@use "fonts";
+@use "default";
+@use "config";
+
+:root {
+  --font-default: "TT Trailers Trial", sans-serif;
+  --violet: #5d3d9a;
+  --blue: #59d0e4;
+  --dark-blue: #071949;
+  --white: #faf7ff;
+  --indigo-blue: #181b6d;
+  --light-pink: #f0e8ff;
+  --pink: #ff3f9f;
+}
+
+[class*="__container"] {
+  @if ($maxWidthContainer>0) {
+    max-width: #{$maxWidthContainer}px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}

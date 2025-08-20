@@ -1,0 +1,47 @@
+.toast {
+  min-width: 260px;
+  max-width: 340px;
+  padding: 24px 40px;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #121212;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  border: 4px solid var(--dark-blue);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateX(120%);
+  opacity: 0;
+  text-transform: uppercase;
+  animation: slide-in 0.2s forwards ease-out;
+}
+
+.error {
+  background: var(--pink);
+  color: var(--dark-blue);
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Toast root container styling (global) */
+:global {
+  #toast-root {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}

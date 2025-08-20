@@ -1,0 +1,163 @@
+.wrapper {
+  width: 100%;
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include for-tablet {
+    padding: 20px 40px;
+    justify-content: flex-start;
+  }
+}
+
+.navItems {
+  padding-top: 20px;
+  display: flex;
+  gap: 0;
+}
+
+.navItem {
+  font-size: 40px;
+  font-weight: 800;
+  padding: 17px 40px;
+  border-radius: 3px;
+  cursor: pointer !important;
+
+  &:hover {
+    background-color: var(--violet);
+  }
+}
+
+.sandwichMenu {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sandwichMenuLine {
+  width: 20px;
+  height: 2px;
+  background-color: var(--white);
+  border-radius: 1px;
+  z-index: 10;
+  transition: 0.5s ease-in;
+}
+
+.sandwichMenuOpen {
+  .sandwichMenuLine:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 2px);
+  }
+  .sandwichMenuLine:nth-child(2) {
+    transform: rotate(-45deg) translate(2px, 0px);
+  }
+  .sandwichMenuLine:nth-child(3) {
+    transform: rotate(45deg) translate(0, 50px);
+  }
+}
+
+.menuButtonWrapper {
+  width: 129px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding: 0 30px;
+  z-index: 5;
+
+  @include for-mobile {
+    width: 110px;
+    height: 48px;
+    padding: 0 23px;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 129px;
+    height: 60px;
+
+    @include for-mobile {
+      width: 110px;
+      height: 48px;
+    }
+  }
+
+  .menuButtonText {
+    position: relative;
+    z-index: 10;
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--white);
+
+    @include for-mobile {
+      font-size: 20px;
+    }
+  }
+}
+
+.mobileMenuWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0dvw;
+  height: 100dvh;
+  background-color: var(--indigo-blue);
+  // display: none;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 20px;
+
+  &.mobileMenuWrapperOpen {
+    display: flex;
+    width: 100dvw;
+    transform: translateX(0);
+  }
+}
+
+.mobileMenuItems {
+  width: 100%;
+  font-size: 40px;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.mobileMenuItem {
+  font-size: 24px;
+}
+
+.icons {
+  display: flex;
+
+  gap: 20px;
+}

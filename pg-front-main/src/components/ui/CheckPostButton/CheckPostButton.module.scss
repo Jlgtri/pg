@@ -1,0 +1,73 @@
+.authButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 50px;
+  position: relative;
+  --fill-color: #59d0e4;
+  --stroke-color: #071949;
+  cursor: default;
+
+  &:disabled {
+    cursor: default;
+    --fill-color: #717cd2;
+  }
+
+  &:hover:not(.completed):not(:disabled) {
+    --fill-color: #717cd2;
+    cursor: pointer;
+
+    .authButton {
+      color: #fff;
+    }
+  }
+}
+
+.completed {
+  --fill-color: #071949 !important;
+
+  .authButton {
+    color: #59d0e4 !important;
+  }
+}
+
+.authButton {
+  color: #181b6d;
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 100%;
+  text-transform: uppercase;
+  z-index: 2;
+  margin-top: 5px;
+}
+
+.authButtonBG {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+// .authButtonContainer:hover {
+//   .authButton:not(.completed):not(:disabled) {
+//     color: #071949;
+//   }
+
+//   .authButton:not(.completed):not(:disabled) ~ .authButtonBG {
+//     svg {
+//       path {
+//         fill: #59d0e4;
+//       }
+//     }
+//   }
+// }
+
+.completed {
+  color: #717cd2;
+  pointer-events: none !important;
+}

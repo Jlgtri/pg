@@ -1,0 +1,82 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  padding: 80px 0 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 20px;
+
+  @media (max-width: 1700px) {
+    gap: 16px;
+  }
+
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+
+  @include for-tablet {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 40px 0;
+  }
+}
+
+.textWrapper {
+  width: 100%;
+  max-width: 727px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 2 1 auto%;
+  // gap: 8px;
+}
+
+.cardsWrapper {
+  height: 100%;
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 2 auto;
+  gap: 20px;
+
+  @include for-tablet {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  @include for-mobile {
+    width: 100%;
+  }
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+.mb18 {
+  margin-bottom: 18px;
+}
+.mb23 {
+  margin-bottom: 10px;
+}
+.tablet24space {
+  @include for-tablet {
+    margin-bottom: 24px;
+  }
+
+  @include for-mobile {
+    margin-bottom: 14px;
+  }
+}

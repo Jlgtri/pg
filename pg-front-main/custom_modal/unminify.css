@@ -1,0 +1,677 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+[class~="ms_loader_head"] title {
+  color: #01091b;
+}
+
+.ms_loader {
+  position: absolute;
+}
+
+.ms_loader {
+  top: 50%;
+}
+
+#ms-loader,
+[class~="ms_loader_head"] title {
+  display: block;
+}
+
+[class~="ms_loader_head"] title {
+  font-size: 32px;
+}
+
+#ms-loader {
+  position: fixed;
+}
+
+[class~="ms_loader_head"] title,
+.ms_loader button {
+  font-style: normal;
+}
+
+.ms_loader {
+  left: 50%;
+}
+
+.ms_loader {
+  transform: translate(-50%, -50%);
+}
+
+.ms_loader button,
+.ms_loader button.active {
+  border-radius: 0.166666667in;
+}
+
+.ms_loader {
+  box-sizing: border-box;
+}
+
+.ms_loader {
+  width: calc(100% - 20px);
+}
+
+[class~="ms_loader_head"],
+.ms_loader,
+.ms_loader button,
+[class~="ms_loader_content"] {
+  display: flex;
+}
+
+[class~="ms_loader_head"] title,
+.ms_loader button {
+  font-weight: 700;
+}
+
+#ms-loader {
+  width: 100%;
+}
+
+.ms_loader button,
+[class~="ms_loader_head"] title {
+  line-height: normal;
+}
+
+[class~="ms_loader_head"] title {
+  letter-spacing: 0.02pc;
+}
+
+.ms_loader {
+  max-width: 420pt;
+}
+
+.ms_loader button {
+  padding-left: 0in;
+}
+
+.ms_loader {
+  padding-left: 24pt;
+}
+
+.ms_loader {
+  padding-bottom: 24pt;
+}
+
+#ms-loader {
+  height: 100%;
+}
+
+.ms_loader button {
+  padding-bottom: 1.25pc;
+}
+
+.ms_loader button {
+  padding-right: 0in;
+}
+
+.ms_loader {
+  padding-right: 24pt;
+}
+
+.ms_loader button {
+  padding-top: 1.25pc;
+}
+
+.ms_loader button,
+[class~="ms_loader_main"] {
+  justify-content: center;
+}
+
+.ms_loader {
+  padding-top: 24pt;
+}
+
+.ms_loader button {
+  align-items: center;
+}
+
+.ms_loader,
+[class~="ms-loader-content"],
+[class~="ms_loader_content"],
+[class~="ms_loader_head"] {
+  flex-direction: column;
+}
+
+.ms_loader button {
+  gap: 8px;
+}
+
+.ms_loader button.active {
+  background: linear-gradient(91deg, #4200fd 0%, #0056fd 98.05%);
+}
+
+[class~="ms_loader_content"],
+[class~="ms_loader_head"],
+.ms_loader {
+  align-items: flex-start;
+}
+
+.ms_loader {
+  overflow: hidden;
+}
+
+[class~="ms_loader_content"],
+.ms_loader button {
+  align-self: stretch;
+}
+
+.ms_loader button {
+  font-family: Inter;
+}
+
+.ms_loader {
+  gap: 40px;
+}
+
+#ms-loader {
+  inset: 0pc;
+}
+
+.ms_loader {
+  border-radius: 2pc;
+}
+
+.ms_loader button.active {
+  color: white;
+}
+
+#ms-loader {
+  background: rgba(8, 5, 23, 0.5);
+}
+
+.ms_loader button {
+  outline: 0px;
+}
+
+.ms_loader button {
+  cursor: pointer;
+}
+
+.ms_loader button {
+  font-size: 1pc;
+}
+
+[class~="ms_loader_content"] {
+  gap: 32px;
+}
+
+.ms_loader button.disabled,
+[class~="ms_loader"] [class~="black"] button[class~="disabled"] {
+  opacity: 0.2;
+}
+
+.ms_loader button {
+  letter-spacing: 0.01pc;
+}
+
+.ms_loader button {
+  border-left-width: 0in;
+}
+
+.ms_loader button {
+  border-bottom-width: 0in;
+}
+
+.ms_loader button.disabled {
+  background: #c5c5c5;
+}
+
+[class~="ms_loader_head"] {
+  height: 71px;
+}
+
+.ms_loader button {
+  border-right-width: 0in;
+}
+
+.ms_loader button {
+  border-top-width: 0in;
+}
+
+.ms_loader button {
+  border-left-style: none;
+}
+
+.ms_loader button {
+  border-bottom-style: none;
+}
+
+[class~="ms_loader_head"] {
+  gap: 0.083333333in;
+}
+
+.ms_loader button {
+  border-right-style: none;
+}
+
+.ms_loader button {
+  border-top-style: none;
+}
+
+.ms_loader button {
+  border-left-color: currentColor;
+}
+
+.ms_loader button {
+  border-bottom-color: currentColor;
+}
+
+.ms_loader button {
+  border-right-color: currentColor;
+}
+
+.ms_loader button {
+  border-top-color: currentColor;
+}
+
+[class~="ms-loader-content"],
+[class~="ms_loader_main"],
+[class~="ms_loader_text"] {
+  display: flex;
+}
+
+[class~="ms_loader_main"],
+[class~="ms-loader-content"],
+[class~="ms_loader_text"] {
+  align-items: center;
+}
+
+.ms_loader button {
+  border-image: none;
+}
+
+[class~="ms-lds-ring"] div {
+  box-sizing: border-box;
+}
+
+[class~="ms-lds-ring"] div {
+  display: block;
+}
+
+[class~="ms-lds-ring"] div {
+  position: absolute;
+}
+
+[class~="ms-lds-ring"] div {
+  width: 32px;
+}
+
+[class~="ms-lds-ring"] div {
+  height: 0.333333333in;
+}
+
+[class~="ms-lds-ring"] div {
+  margin-left: 3pt;
+}
+
+[class~="ms-lds-ring"] div {
+  margin-bottom: 3pt;
+}
+
+#ms-loader {
+  z-index: 999999;
+}
+
+[class~="ms-lds-ring"] div {
+  margin-right: 3pt;
+}
+
+[class~="ms-lds-ring"] div {
+  margin-top: 3pt;
+}
+
+[class~="ms-lds-ring"] div {
+  border-left-width: 2.25pt;
+}
+
+[class~="ms_loader_main"] {
+  align-self: stretch;
+}
+
+[class~="ms-lds-ring"] div {
+  border-bottom-width: 2.25pt;
+}
+
+[class~="ms-lds-ring"] div {
+  border-right-width: 2.25pt;
+}
+
+[class~="ms_loader"][class~="white"] {
+  background: #fff;
+}
+
+#ms-loader {
+  font-family: Inter, sans-serif;
+}
+
+[class~="ms-lds-ring"] div {
+  border-top-width: 2.25pt;
+}
+
+[class~="ms-lds-ring"] div {
+  border-left-style: solid;
+}
+
+[class~="ms-loader-content"] {
+  gap: 24pt;
+}
+
+[class~="ms-lds-ring"] div {
+  border-bottom-style: solid;
+}
+
+[class~="ms-lds-ring"] div {
+  border-right-style: solid;
+}
+
+[class~="ms-loader-content"] {
+  max-width: 18.75pc;
+}
+
+[class~="ms-lds-ring"] div {
+  border-top-style: solid;
+}
+
+[class~="ms-lds-ring"] div {
+  border-left-color: transparent;
+}
+
+[class~="ms-lds-ring"] div {
+  border-bottom-color: transparent;
+}
+
+[class~="ms_loader_text"] {
+  flex-direction: column;
+}
+
+[class~="ms_loader_text"] {
+  gap: 0.25pc;
+}
+
+[class~="ms-lds-ring"] div {
+  border-right-color: transparent;
+}
+
+[class~="ms-lds-ring"] div {
+  border-top-color: #9747ff;
+}
+
+[class~="ms-lds-ring"] div {
+  border-image: none;
+}
+
+.ms_loader button.disabled {
+  color: #01091b;
+}
+
+[class~="ms-lds-ring"] div {
+  border-radius: 100%;
+}
+
+[class~="ms-lds-ring"] div {
+  animation: ms-lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+[class~="ms_loader_text"] {
+  color: #3a455f;
+}
+
+[class~="ms_loader_text"] {
+  text-align: center;
+}
+
+[class~="ms_loader_text"] {
+  font-family: Inter;
+}
+
+[class~="ms_loader_text"] {
+  font-size: 0.166666667in;
+}
+
+[class~="ms_loader_text"] {
+  font-style: normal;
+}
+
+[class~="ms_loader_text"] {
+  font-weight: 400;
+}
+
+[class~="ms_loader_button"] {
+  width: 100%;
+}
+
+[class~="ms-lds-ring"] div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+[class~="ms_loader_button"] {
+  display: grid;
+}
+
+[class~="ms-lds-ring"] {
+  display: inline-block;
+}
+
+[class~="ms-lds-ring"] {
+  position: relative;
+}
+
+[class~="ms-lds-ring"] {
+  width: 30pt;
+}
+
+[class~="ms-lds-ring"] {
+  border-radius: 3.125pc;
+}
+
+[class~="ms-lds-ring"] {
+  height: 40px;
+}
+
+[class~="ms-lds-ring"] {
+  overflow: hidden;
+}
+
+[class~="ms_loader"] [class~="black"] button[class~="disabled"] {
+  background: #545454;
+}
+
+[class~="ms-lds-ring"] div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+[class~="ms-lds-ring"] div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes ms-lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+[class~="ms_modal_spinner"] {
+  display: flex;
+}
+
+[class~="ms_modal_spinner"] {
+  width: 52px;
+}
+
+[class~="ms_modal_spinner"] {
+  height: 3.25pc;
+}
+
+#ms-loader .black .ms_loader_el .vector path {
+  fill: white;
+}
+
+[class~="ms_modal_spinner"] [class~="load"] {
+  background: linear-gradient(92deg, rgba(66, 0, 253, 0.08) 11.46%, rgba(0, 86, 253, 0.08) 95.34%);
+}
+
+.white .ms_loader_el .vector path {
+  fill: black;
+}
+
+[class~="ms_modal_spinner"] {
+  padding-left: 4.8pt;
+}
+
+#ms-progress {
+  background: linear-gradient(90deg, #3c08fe 68.26%, rgba(56, 14, 254, 0) 100%);
+}
+
+[class~="black"] [class~="ms_loader_button"] button[class~="disabled"] {
+  color: white;
+}
+
+[class~="ms_modal_spinner"] {
+  padding-bottom: 4.8pt;
+}
+
+[class~="ms_modal_spinner"] {
+  padding-right: 4.8pt;
+}
+
+[class~="ms_modal_spinner"] {
+  padding-top: 4.8pt;
+}
+
+[class~="ms_modal_spinner"] {
+  justify-content: center;
+}
+
+#ms-progress {
+  height: 100%;
+}
+
+[class~="ms-l-d-s"] p {
+  margin-left: 0pc;
+}
+
+[class~="ms_modal_spinner"] {
+  align-items: center;
+}
+
+[class~="black"] [class~="ms_loader_button"] button[class~="disabled"] {
+  background: #545454;
+}
+
+[class~="ms_modal_spinner"],
+[class~="ms_modal_spinner"] [class~="load"],
+[class~="ms_modal_spinner"][class~="success"] {
+  border-radius: 50px;
+}
+
+[class~="ms_modal_spinner"] {
+  position: absolute;
+}
+
+[class~="ms-l-d-s"] p {
+  margin-bottom: 0pc;
+}
+
+[class~="ms_modal_spinner"][class~="success"] {
+  background: rgba(86, 214, 41, 0.08);
+}
+
+[class~="ms_modal_spinner"][class~="success"] {
+  backdrop-filter: blur(3.25000023842px);
+}
+
+[class~="ms_modal_spinner"][class~="error"] {
+  background: rgba(224, 82, 94, 0.08);
+}
+
+[class~="ms-l-d-s"] p {
+  margin-right: 0pc;
+}
+
+[class~="ms_modal_spinner"] {
+  top: 50%;
+}
+
+[class~="ms_loader"][class~="black"] {
+  background: #0d0e13;
+}
+
+#ms-loader .black .ms_loader_text {
+  color: #959eb0;
+}
+
+[class~="ms_modal_spinner"] {
+  left: 50%;
+}
+
+[class~="ms_modal_spinner"] {
+  transform: translate(-50%, -50%);
+}
+
+[class~="ms_loader_el"] {
+  position: relative;
+}
+
+[class~="ms_loader_title"] {
+  color: #01091b;
+}
+
+[class~="ms_loader_title"] {
+  font-size: 1.125pc;
+}
+
+[class~="ms_loader_title"] {
+  font-style: normal;
+}
+
+[class~="ms-l-d-s"] p {
+  margin-top: 0pc;
+}
+
+[class~="ms_loader_title"] {
+  font-weight: 500;
+}
+
+[class~="ms_loader_title"] {
+  line-height: normal;
+}
+
+[class~="ms_loader_title"] {
+  text-align: center;
+}
+
+[class~="black"] [class~="ms_loader_title"] {
+  color: white;
+}
+
+[class~="ms_loader_title"] {
+  letter-spacing: 0.00375in;
+}
+
+[class~="ms_progress_bar"] {
+  position: absolute;
+}
+
+[class~="ms_progress_bar"] {
+  bottom: 0in;
+}
+
+[class~="ms_progress_bar"] {
+  right: 0px;
+}
+
+[class~="ms_progress_bar"] {
+  left: 0pc;
+}
+
+[class~="ms_progress_bar"] {
+  height: 0.041666667in;
+}
+
+#ms-loader .black .ms_loader_head title {
+  color: #fff;
+}

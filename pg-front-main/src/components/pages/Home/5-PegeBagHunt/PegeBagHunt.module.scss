@@ -1,0 +1,157 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 130px 0;
+
+  @include for-tablet {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 80px 0;
+  }
+}
+
+.imageWrapper {
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex: 1 1 50%;
+  max-width: 1000px;
+
+  img {
+    width: 100%;
+  }
+
+  @include for-tablet {
+    img {
+      width: 100%;
+    }
+
+    width: 100%;
+    gap: 16px;
+    order: 1;
+  }
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 2 1 50%;
+  gap: 32px;
+  max-width: 804px;
+
+  @include for-tablet {
+    gap: 16px;
+    max-width: 100%;
+  }
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.numberedBlock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.number {
+  color: var(--blue);
+  font-size: 83.1px;
+  font-weight: 900;
+  line-height: 100%;
+}
+
+.numberedBlockWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+
+  @include for-tablet {
+    // width: 400px;
+    height: auto;
+  }
+
+  @include for-mobile {
+    // width: 250px;
+    margin-bottom: 16px;
+  }
+}
+
+.rulesWrapper {
+  width: 100%;
+  // padding-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+
+  @include for-tablet {
+    padding-top: 0;
+    justify-content: flex-start;
+  }
+
+  @include for-mobile {
+    max-width: 320px;
+  }
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+
+  @include for-tablet {
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  @include for-mobile {
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+  }
+}
+
+.ruleText {
+  color: var(--white);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: uppercase;
+
+  @include for-tablet {
+    font-size: 25px;
+  }
+
+  @include for-mobile {
+    font-size: 15px;
+  }
+}

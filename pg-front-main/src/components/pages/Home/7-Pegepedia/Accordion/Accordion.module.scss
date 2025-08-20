@@ -1,0 +1,119 @@
+.accordionItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 500px;
+  padding: 6px 6px 6px 0px;
+  border-radius: 44px;
+  background-color: var(--indigo-blue);
+  cursor: pointer;
+  // transition: max-height 0.5s ease-in-out, opacity 0.1s ease-in-out;
+
+  @include for-tablet {
+    border-radius: 38px;
+  }
+
+  @include for-mobile {
+    border-radius: 27px;
+  }
+}
+
+.title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+
+  @include for-tablet {
+    font-size: 21px;
+  }
+
+  @include for-mobile {
+    font-size: 15px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 26px 38px 20px 38px;
+
+  @include for-tablet {
+    padding: 20px 30px 16px 30px;
+  }
+
+  @include for-mobile {
+    padding: 16px 20px 16px 20px;
+  }
+}
+
+.arrowWrapper {
+  align-self: flex-start;
+  height: 76px;
+  aspect-ratio: 1/1;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-out;
+  box-shadow: 4px 0px 0px 0px var(--violet);
+  cursor: pointer;
+
+  @include for-tablet {
+    height: 68px;
+  }
+
+  @include for-mobile {
+    height: 47px;
+  }
+}
+
+.arrow {
+  transition: transform 0.3s ease-out;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
+
+.description {
+  box-sizing: content-box;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out,
+    margin-top 0.5s ease-out;
+  opacity: 0;
+  width: 100%;
+  // padding: 0 0 0 38px;
+  white-space: pre-line;
+  color: #717cd2;
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+
+  @include for-tablet {
+    font-size: 18px;
+  }
+
+  @include for-mobile {
+    font-size: 15px;
+  }
+}
+
+.description_open {
+  margin-top: 20px;
+  height: auto;
+  opacity: 1;
+  max-height: calc(500px - 88px);
+  transition: max-height 0.4s ease-out, opacity 0.4s ease-out,
+    margin-top 0.3s ease-out;
+}
