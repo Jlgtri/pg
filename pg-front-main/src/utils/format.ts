@@ -1,8 +1,7 @@
 import { PROJECT_START_DATE, TIME_BETWEEN_SNAPSHOTS_SEC, TOTAL_SNAPSHOTS } from "@/constants";
-import { differenceInSeconds } from 'date-fns';
 
 export const getLastProjectStartDate = () => {
-  const diffSeconds = differenceInSeconds(new Date(), PROJECT_START_DATE);
+  const diffSeconds = Date.now() / 1000 - PROJECT_START_DATE;
   const rounds = Math.floor(diffSeconds / (TOTAL_SNAPSHOTS * TIME_BETWEEN_SNAPSHOTS_SEC));
   return PROJECT_START_DATE + (TOTAL_SNAPSHOTS * TIME_BETWEEN_SNAPSHOTS_SEC) * rounds;
 };
@@ -107,7 +106,7 @@ export function getSnapshotDateString(
 }
 
 export const computeCurrentSnapshot = (): number => {
-  const diffSeconds = differenceInSeconds(new Date(), PROJECT_START_DATE);
+  const diffSeconds = Date.now() / 1000 - PROJECT_START_DATE;
   const stage = Math.floor(diffSeconds / TIME_BETWEEN_SNAPSHOTS_SEC) + 1;
   return stage % TOTAL_SNAPSHOTS;
 };

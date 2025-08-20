@@ -35,14 +35,5 @@ export const BONUS_ON_EACH_CHECK_IN: Record<number, number> = {
 
 export const TOTAL_SNAPSHOTS = 5;
 
-const parseDateToEpoch = (dateString: string): number => {
-  const [time, date] = dateString.split(" ");
-  const [hours, minutes, seconds] = time.split("-").map(Number);
-  const [day, month, year] = date.split("-").map(Number);
-
-  const dateObj = new Date(year, month - 1, day, hours, minutes, seconds);
-  return Math.floor(dateObj.getTime() / 1000);
-};
-
-export const PROJECT_START_DATE = parseDateToEpoch(START_DATE_INPUT);
+export const PROJECT_START_DATE = Math.floor(Date.parse(START_DATE_INPUT) / 1000);
 export const PROJECT_DONATION_CHECK_IN_AFTER = 2;

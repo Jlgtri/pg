@@ -1,9 +1,8 @@
 import { SECONDS_BETWEEN_CHECK_IN, TOTAL_CHECK_INS } from '@libs/constants';
 import CONFIG from 'config';
-import { differenceInSeconds } from 'date-fns';
 
 export const getStageOfCheckIn = () => {
-  const diffSeconds = differenceInSeconds(new Date(), CONFIG.PROJECT.START_DATE);
+  const diffSeconds = (Date.now() - Date.parse(CONFIG.PROJECT.START_DATE)) / 1000;
   const stage = Math.floor(diffSeconds / SECONDS_BETWEEN_CHECK_IN) + 1;
   return stage % TOTAL_CHECK_INS;
 };
