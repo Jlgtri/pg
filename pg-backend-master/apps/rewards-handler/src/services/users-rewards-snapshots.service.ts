@@ -1,4 +1,5 @@
 import { SnapshotUserInfoEntity, UserEntity } from '@libs/db';
+import { getLastProjectStartDate } from '@libs/utils';
 import { Inject, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { DataSource } from 'typeorm';
@@ -22,6 +23,7 @@ export class UsersRewardsSnapshotsService {
         FROM ${UserEntity.Name}
         WHERE ${SnapshotUserInfoEntity.Name}."walletAddress" = ${UserEntity.Name
         }."walletAddress"
+        AND ${SnapshotUserInfoEntity.Name}."date" > ${new Date(getLastProjectStartDate() * 1000).toISOString()}
         ${userId ? `AND ${UserEntity.Name}.id = ${userId}` : ''}
         AND ${SnapshotUserInfoEntity.Name}."userId" IS NULL;
       `);

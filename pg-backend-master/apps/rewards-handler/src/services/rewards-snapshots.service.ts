@@ -9,6 +9,7 @@ import { ApiService as GoldrushApiService } from '@libs/goldrush/services';
 import { BotTelegramService, PROVIDE_BOT } from '@libs/telegram';
 import {
   delay,
+  getLastProjectStartDate,
   getRewardCoeff,
   getStageOfCheckIn,
   getTotalPepeBalance,
@@ -28,7 +29,7 @@ import {
   subDays
 } from 'date-fns';
 import _ from 'lodash';
-import { DataSource } from 'typeorm';
+import { DataSource, MoreThanOrEqual } from 'typeorm';
 import { Holder } from '../types/holder.types';
 import { UsersRewardsSnapshotsService } from './users-rewards-snapshots.service';
 
@@ -418,7 +419,10 @@ export class RewardsSnapshotsService {
     const snapshot = await this.dataSource.manager.findOne(
       SnapshotUserInfoEntity,
       {
-        where: { walletAddress },
+        where: {
+          walletAddress,
+          date: MoreThanOrEqual(new Date(getLastProjectStartDate() * 1000).toISOString()),
+        },
         order: { date: 'DESC' },
       },
     );

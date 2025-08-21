@@ -7,6 +7,12 @@ export const getStageOfCheckIn = () => {
   return (stage % TOTAL_CHECK_INS) + 1;
 };
 
+export const getLastProjectStartDate = () => {
+  const diffSeconds = (Date.now() - Date.parse(CONFIG.PROJECT.START_DATE)) / 1000;
+  const rounds = Math.floor(diffSeconds / (TOTAL_CHECK_INS * SECONDS_BETWEEN_CHECK_IN));
+  return Date.parse(CONFIG.PROJECT.START_DATE) / 1000 + (TOTAL_CHECK_INS * SECONDS_BETWEEN_CHECK_IN) * rounds;
+};
+
 // TODO change to diff days
 // export const getStageOfCheckIn = () => {
 //   const diffDays = differenceInMinutes(new Date(), '2025-06-30T18:00:00.000Z');
