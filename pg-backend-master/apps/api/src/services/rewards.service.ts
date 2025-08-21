@@ -28,7 +28,7 @@ export class RewardsService {
     query.select('DISTINCT sui."date" as dates');
     query.innerJoin('sui.user', 'u');
     query.where('u."walletAddress" = :wallet', { wallet });
-    query.andWhere('u."date" > :current', { current: new Date(getLastProjectStartDate() * 1000).toISOString() });
+    query.andWhere('sui."date" > :current', { current: new Date(getLastProjectStartDate() * 1000).toISOString() });
     query.orderBy('date', 'DESC');
     const res = await query.getRawMany();
     return res.map(({ dates }) => dates);
@@ -43,7 +43,7 @@ export class RewardsService {
     query.where(`date_trunc(\'day\', date) = :dateByDay`, {
       dateByDay: format(date, 'yyyy-MM-dd'),
     });
-    query.andWhere('u."date" > :current', { current: new Date(getLastProjectStartDate() * 1000).toISOString() });
+    query.andWhere('sui."date" > :current', { current: new Date(getLastProjectStartDate() * 1000).toISOString() });
     query.andWhere('u."walletAddress" = :wallet', { wallet });
     const snapshot = await query.getOne();
     if (!snapshot) {
@@ -71,7 +71,7 @@ export class RewardsService {
     );
     query.innerJoinAndSelect('sui.user', 'u');
     query.where('u."walletAddress" = :wallet', { wallet });
-    query.andWhere('u."date" > :current', { current: new Date(getLastProjectStartDate() * 1000).toISOString() });
+    query.andWhere('sui."date" > :current', { current: new Date(getLastProjectStartDate() * 1000).toISOString() });
     const snapshots = await query.getMany();
     return snapshots.map((snapshot) => ({
       date: snapshot.date,
@@ -164,7 +164,7 @@ export class RewardsService {
     );
     query.innerJoinAndSelect('sui.user', 'u');
     query.where('u."walletAddress" = :wallet', { wallet });
-    query.andWhere('u."date" >= :current', { current: new Date(getLastProjectStartDate() * 1000).toISOString() });
+    query.andWhere('sui."date" >= :current', { current: new Date(getLastProjectStartDate() * 1000).toISOString() });
     query.orderBy('date', 'DESC');
     const snapshot = await query.getOne();
     if (!snapshot) {
