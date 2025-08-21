@@ -23,7 +23,7 @@ export class UsersRewardsSnapshotsService {
         FROM ${UserEntity.Name}
         WHERE ${SnapshotUserInfoEntity.Name}."walletAddress" = ${UserEntity.Name
         }."walletAddress"
-        AND ${SnapshotUserInfoEntity.Name}."date" > ${new Date(getLastProjectStartDate() * 1000).toISOString()}
+        AND ${SnapshotUserInfoEntity.Name}."date" > '${new Date(getLastProjectStartDate() * 1000).toISOString()}'
         ${userId ? `AND ${UserEntity.Name}.id = ${userId}` : ''}
         AND ${SnapshotUserInfoEntity.Name}."userId" IS NULL;
       `);
