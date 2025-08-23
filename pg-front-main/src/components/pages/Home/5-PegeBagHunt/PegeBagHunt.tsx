@@ -82,7 +82,7 @@ export const PegeBagHunt: React.FC = () => {
               </div>
               <div className={styles.numberedBlock}>
                 <div className={styles.number}>02</div>
-                <Paragraph text="Link your X account (Via Twitter's secure authorization)" />
+                <Paragraph text="Insert your x username (no auth - stay safe) and follow @pegevip" />
               </div>
             </div>
             <Paragraph text="(All actions are moderated before being credited)" />

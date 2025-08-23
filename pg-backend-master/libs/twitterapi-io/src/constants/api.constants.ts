@@ -1,4 +1,4 @@
-export const API_CHECK_USERNAME = 'MrBeast';
+export const API_CHECK_USERNAME = 'pegevip';
 export const API_URL = 'https://api.twitterapi.io/';
 
 export const API_URL_LAST_TWEETS = API_URL + 'twitter/user/last_tweets';

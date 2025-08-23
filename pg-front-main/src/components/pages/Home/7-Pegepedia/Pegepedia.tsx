@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Pegepedia.module.scss";
 import { BlockWrapper } from "../../../ui/BlockWrapper/BlockWrapper";
-import Title from "../../../ui/Title/Title";
 import Subtitle from "../../../ui/Subtitle/Subtitle";
+import Title from "../../../ui/Title/Title";
 import Accordion from "./Accordion/Accordion";
+import styles from "./Pegepedia.module.scss";
 
 const PEGEPEDIA_DATA = [
   {
@@ -33,7 +33,7 @@ const PEGEPEDIA_DATA = [
   },
   {
     title: "6. How does the multiplier work?",
-    description: `Your multiplier is based on how long you’ve held $PEPE: 
+    description: `Your multiplier is based on how long you’ve held $PEPE:
     \n Less than 1 week — x1 \n More than 1 week — x1.5 \n More than 2 weeks — x2 \n More than 2 months — x2.5 \n Over 6 months — x3 \n
 The earlier you started holding, the higher your multiplier.`,
   },
@@ -55,11 +55,11 @@ The earlier you started holding, the higher your multiplier.`,
     Deleted posts will not be rewarded.
     You must link your Twitter account to your wallet through the website to participate.`,
   },
-  {
-    title: "10. How does the Twitter bounty work?",
-    description: `You can earn additional $PEGE rewards by posting tweets or retweets using the project’s official hashtags.
-Twitter participation is completely optional, but it helps boost your rewards and supports the growth of the project.`,
-  },
+  //   {
+  //     title: "10. How does the Twitter bounty work?",
+  //     description: `You can earn additional $PEGE rewards by posting tweets or retweets using the project’s official hashtags.
+  // Twitter participation is completely optional, but it helps boost your rewards and supports the growth of the project.`,
+  //   },
 ];
 
 export const Pegepedia: React.FC = () => {

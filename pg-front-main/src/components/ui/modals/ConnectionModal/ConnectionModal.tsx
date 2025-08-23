@@ -175,7 +175,7 @@ export const ConnectionModal = () => {
           <div className={styles.group_wrapper}>
             <div className={styles.instruction}>
               <div className={styles.number}>2--</div>
-              <div className={styles.text}>Follow @MrBeast</div>
+              <div className={styles.text}>Follow @pegevip</div>
             </div>
             <CheckPostButton />
           </div>{" "}

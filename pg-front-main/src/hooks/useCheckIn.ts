@@ -41,7 +41,7 @@ export const useCheckIn = () => {
       };
 
       connect_wallet(state.wallet).then(success => {
-        if (!success) return;
+        if (!success) return setIsChecking(false);
         checkInRequest(state.walletAddress!)
           .then(() => {
             // Refresh snapshots list to include new check-in data
