@@ -50,11 +50,11 @@ export const formatTimeDigits = (time: number, isHours: boolean = false) => {
     ? time > 99
       ? time
       : time > 9
-        ? `${time}`
-        : `${time}`
+        ? ` ${time}`
+        : ` 0${time}`
     : time > 9
       ? time
-      : `${time}`;
+      : `0${time}`;
 };
 
 export const trimFractionalNum = (num: number, decimals: number) => {

@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
         />
         <div className={styles.countdown}>
           <span className={styles.countdownTitle}>BAG BOMB:</span>
-          <span className={styles.countdownValue}>{`${formatTimeDigits(
+          <span className={styles.countdownValue}>{`  ${formatTimeDigits(
             countdownDateDiff.days > 0
               ? countdownDateDiff.days
               : countdownDateDiff.hours,
