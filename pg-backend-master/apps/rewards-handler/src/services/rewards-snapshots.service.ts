@@ -12,9 +12,8 @@ import {
   getLastProjectStartDate,
   getRewardCoeff,
   getStageOfCheckIn,
-  getTotalPepeBalance,
   isAddressesEqual,
-  toLower,
+  toLower
 } from '@libs/utils';
 import { Inject, Logger } from '@nestjs/common';
 import Big from 'big.js';
@@ -229,7 +228,10 @@ export class RewardsSnapshotsService {
 
     const diffBalancesBN = Big(holder.balance);
 
-    if (diffBalancesBN.eq(getTotalPepeBalance(lastSnapshot))) {
+    const lastDistributionRaw = lastSnapshot.holdingDistribution[lastSnapshot.holdingDistribution.length - 1];
+    const lastDistribution = JSON.parse(lastDistributionRaw);
+
+    if (diffBalancesBN.eq(lastDistribution.amount)) {
       const snapshot = await this.#updateSnapshotNoChangeBalance(
         holder,
         date,
@@ -239,7 +241,7 @@ export class RewardsSnapshotsService {
       return snapshot;
     }
 
-    else if (diffBalancesBN.gt(getTotalPepeBalance(lastSnapshot))) {
+    else if (diffBalancesBN.gt(lastDistribution.amount)) {
       const snapshot = await this.#updateSnapshotDepositBalance(
         holder,
         date,
@@ -250,7 +252,7 @@ export class RewardsSnapshotsService {
       return snapshot;
     }
 
-    else if (diffBalancesBN.lt(getTotalPepeBalance(lastSnapshot))) {
+    else if (diffBalancesBN.lt(lastDistribution.amount)) {
       const snapshot = await this.#updateSnapshotClaimBalance(
         holder,
         date,
