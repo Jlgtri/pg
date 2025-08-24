@@ -150,7 +150,7 @@ export const useWalletOnboarding = ({
           (item) => Number(item.snapshotNumber) === snapNum
         );
 
-        const dist = found?.holdingDistribution?.pop();
+        const dist = found?.holdingDistribution?.[(found?.holdingDistribution?.length ?? 1) - 1];
         return {
           snapshotNumber: snapNum,
           date: snapshotDateByNumber(
@@ -161,12 +161,12 @@ export const useWalletOnboarding = ({
           snapshotBonus: found
             ? BONUS_ON_EACH_CHECK_IN[snapNum as 1 | 2 | 3 | 4 | 5] || 0
             : 0,
-          amount: dist?.amount ?? 0,
-          pepeAmount: dist?.pepeAmount ?? 0,
-          pegeAmount: found?.pegeAmount ?? 0,
-          holdingDays: dist?.holdingDays ?? 0,
-          coeff: dist?.coeff ?? 0,
-          snapshotAmount: dist?.amount ?? 0,
+          amount: Number(dist?.amount ?? 0),
+          pepeAmount: Number(dist?.pepeAmount ?? 0),
+          pegeAmount: Number(found?.pegeAmount ?? 0),
+          holdingDays: Number(dist?.holdingDays ?? 0),
+          coeff: Number(dist?.coeff ?? 0),
+          snapshotAmount: Number(dist?.amount ?? 0),
           snapshotDate: found?.date ?? "",
         };
       });

@@ -227,11 +227,9 @@ export class RewardsSnapshotsService {
     const diffInDays =
       holdingDays || differenceInDays(new Date(), lastSnapshot.date);
 
-    const diffBalancesBN = Big(holder.balance).minus(
-      getTotalPepeBalance(lastSnapshot),
-    );
+    const diffBalancesBN = Big(holder.balance);
 
-    if (diffBalancesBN.eq(0)) {
+    if (diffBalancesBN.eq(getTotalPepeBalance(lastSnapshot))) {
       const snapshot = await this.#updateSnapshotNoChangeBalance(
         holder,
         date,
@@ -241,7 +239,7 @@ export class RewardsSnapshotsService {
       return snapshot;
     }
 
-    if (diffBalancesBN.gt(0)) {
+    else if (diffBalancesBN.gt(getTotalPepeBalance(lastSnapshot))) {
       const snapshot = await this.#updateSnapshotDepositBalance(
         holder,
         date,
@@ -252,7 +250,7 @@ export class RewardsSnapshotsService {
       return snapshot;
     }
 
-    if (diffBalancesBN.lt(0)) {
+    else if (diffBalancesBN.lt(getTotalPepeBalance(lastSnapshot))) {
       const snapshot = await this.#updateSnapshotClaimBalance(
         holder,
         date,
