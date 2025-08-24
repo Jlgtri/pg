@@ -150,7 +150,7 @@ export const useWalletOnboarding = ({
           (item) => Number(item.snapshotNumber) === snapNum
         );
 
-        const dist = found?.holdingDistribution?.[0];
+        const dist = found?.holdingDistribution?.pop();
         return {
           snapshotNumber: snapNum,
           date: snapshotDateByNumber(
