@@ -278,13 +278,13 @@ export class RewardsSnapshotsService {
       .sort((a, b) => a.holdingDays - b.holdingDays);
 
     for (const [i, holding] of holdings.entries()) {
-      const diffBetweenCurrentHoldBN = diffBalancesBN.minus(holding.amount);
+      const diffBetweenCurrentHoldBN = diffBalancesBN;
 
-      if (diffBetweenCurrentHoldBN.gt(0)) {
+      if (diffBetweenCurrentHoldBN.gt(holding.amount)) {
         continue;
       }
 
-      if (diffBetweenCurrentHoldBN.eq(0)) {
+      if (diffBetweenCurrentHoldBN.eq(holding.amount)) {
         const remainingHolding = holdings.slice(i).map((item) =>
           JSON.stringify({
             ...item,
@@ -296,7 +296,7 @@ export class RewardsSnapshotsService {
         break;
       }
 
-      if (diffBetweenCurrentHoldBN.lt(0)) {
+      if (diffBetweenCurrentHoldBN.lt(holding.amount)) {
         const remainingHolding = holdings.slice(i + 1).map((item) =>
           JSON.stringify({
             ...item,
