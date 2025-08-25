@@ -4,7 +4,6 @@ import { useAppState } from "@/context/AppStateContext";
 import { useCheckIn } from "@/hooks/useCheckIn";
 import { useWalletOnboarding } from "@/hooks/useWalletOnboarding";
 import { useModal } from "@/providers/ModalProvider";
-import { useToast } from "@/providers/ToastProvider";
 import { computeCurrentSnapshot, getLastProjectStartDate } from "@/utils/format";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import React, { useEffect } from "react";
@@ -30,7 +29,6 @@ export const ConnectClaimButton: React.FC<{
   const { isConnected, address } = useAccount();
   const { openModal } = useModal();
   const { checkIn, isChecking } = useCheckIn();
-  const { showToast } = useToast();
 
   localStorage.removeItem("twitterAccountId");
   // mutation to check if wallet already registered (needed for onboarding hook)
@@ -202,8 +200,11 @@ export const ConnectClaimButton: React.FC<{
                       <button
                         disabled={state.balance === 0 ? true : false}
                         onClick={() => {
+                          checkIn();
                           scrollToCountdown();
-                          showToast("Claim is not available yet", "error");
+                          onButtonPressed?.();
+                          // scrollToCountdown();
+                          // showToast("Claim is not available yet", "error");
                         }}
                         type="button"
                       >

@@ -1,7 +1,8 @@
 import { rewardsKeys, useCheckInStatus } from "@/api/queries";
-import { PROJECT_DONATION_CHECK_IN_AFTER } from "@/constants";
+import { PROJECT_DONATION_CHECK_IN_AFTER, TOTAL_SNAPSHOTS } from "@/constants";
 import { useAppState } from "@/context/AppStateContext";
 import { useToast } from "@/providers/ToastProvider";
+import { snapshotEndTime } from "@/utils/format";
 import { useQueryClient } from "@tanstack/react-query";
 import type { AxiosError } from "axios";
 import { useCallback, useState } from "react";
@@ -66,7 +67,12 @@ export const useCheckIn = () => {
 
               if (/Check in exists/i.test(msg)) {
                 setConnectionStatus("current_snapshot_checkedIn");
-                showToast("Already checked-in", "success");
+                if (Date.now() / 1000 > snapshotEndTime(TOTAL_SNAPSHOTS)) {
+                  showToast("Claimed successfully", "success");
+                  setConnectionStatus("claim_claimed");
+                } else {
+                  showToast("Already checked-in", "success");
+                }
                 queryClient.invalidateQueries({
                   queryKey: rewardsKeys.snapshotsList(state.walletAddress),
                 });
