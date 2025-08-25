@@ -2,12 +2,12 @@ import { PROJECT_START_DATE, TIME_BETWEEN_SNAPSHOTS_SEC, TOTAL_SNAPSHOTS } from 
 
 export const getLastProjectStartDate = () => {
   const diffSeconds = Date.now() / 1000 - PROJECT_START_DATE;
-  const rounds = Math.floor(diffSeconds / (TOTAL_SNAPSHOTS * TIME_BETWEEN_SNAPSHOTS_SEC));
-  return PROJECT_START_DATE + (TOTAL_SNAPSHOTS * TIME_BETWEEN_SNAPSHOTS_SEC) * rounds;
+  const rounds = Math.floor(diffSeconds / ((TOTAL_SNAPSHOTS + 1) * TIME_BETWEEN_SNAPSHOTS_SEC));
+  return PROJECT_START_DATE + ((TOTAL_SNAPSHOTS + 1) * TIME_BETWEEN_SNAPSHOTS_SEC) * rounds;
 };
 
 export const getLastProjectEndDate = () => {
-  return getLastProjectStartDate() + TOTAL_SNAPSHOTS * TIME_BETWEEN_SNAPSHOTS_SEC;
+  return getLastProjectStartDate() + (TOTAL_SNAPSHOTS + 1) * TIME_BETWEEN_SNAPSHOTS_SEC;
 };
 
 export const snapshotDateByNumber = (idx: number): number => {
@@ -108,5 +108,5 @@ export function getSnapshotDateString(
 export const computeCurrentSnapshot = (): number => {
   const diffSeconds = Date.now() / 1000 - PROJECT_START_DATE;
   const stage = Math.floor(diffSeconds / TIME_BETWEEN_SNAPSHOTS_SEC);
-  return (stage % TOTAL_SNAPSHOTS) + 1;
+  return Math.min((stage % (TOTAL_SNAPSHOTS + 1)) + 1, TOTAL_SNAPSHOTS);
 };
