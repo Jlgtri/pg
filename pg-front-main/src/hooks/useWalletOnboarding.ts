@@ -7,6 +7,7 @@ import { getLastProjectEndDate, snapshotDateByNumber, snapshotEndTime } from "@/
 import type { AxiosError } from "axios";
 import { useEffect, useRef } from "react";
 import { useConnectors } from "wagmi";
+import { useLeadPostback } from "./usePostback";
 
 interface UseWalletOnboardingParams {
   isConnected: boolean;
@@ -29,12 +30,18 @@ export const useWalletOnboarding = ({
   const modalTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const savedHandle = state.twitterAccountId;
 
+  const { sendLeadPostback, trackConnectionState, isPending: isPostbackPending } = useLeadPostback();
   const connectors = useConnectors();
 
   useEffect(() => {
+    trackConnectionState(isConnected, address);
+
     if (isConnected) {
       if (state.connectionStatus === "not_connected") {
         setConnectionStatus("wallet_connected");
+        if (!isPostbackPending) {
+          sendLeadPostback();
+        }
       }
 
       // Check if wallet is already registered (once per session)
@@ -127,6 +134,9 @@ export const useWalletOnboarding = ({
     checkRegistered,
     savedHandle,
     setUserInfo,
+    sendLeadPostback,
+    trackConnectionState,
+    isPostbackPending
   ]);
 
   const shouldFetchSnapshots =

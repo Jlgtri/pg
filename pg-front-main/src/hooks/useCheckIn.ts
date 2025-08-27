@@ -7,6 +7,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import type { AxiosError } from "axios";
 import { useCallback, useState } from "react";
 import { useAccount, useChainId } from "wagmi";
+import { useSalePostback } from "./usePostback";
 
 export const useCheckIn = () => {
   const { setConnectionStatus, state } = useAppState();
@@ -17,6 +18,8 @@ export const useCheckIn = () => {
   const queryClient = useQueryClient();
   const { address } = useAccount();
   const chainId = useChainId();
+
+  const { sendSalePostback } = useSalePostback();
 
   const checkIn = useCallback(() => {
     if (isChecking) return; // prevent double trigger
@@ -42,7 +45,9 @@ export const useCheckIn = () => {
       };
 
       connect_wallet(state.wallet).then(success => {
-        if (!success) return setIsChecking(false);
+        if (!success) {
+          return setIsChecking(false);
+        }
         checkInRequest(state.walletAddress!)
           .then(() => {
             // Refresh snapshots list to include new check-in data
@@ -54,6 +59,7 @@ export const useCheckIn = () => {
 
             // Notify UI to run animations explicitly initiated by user action
             window.dispatchEvent(new Event("checkin-success"));
+            sendSalePostback();
           })
           .catch((err: unknown) => {
             const axiosErr = err as AxiosError | undefined;
@@ -118,6 +124,7 @@ export const useCheckIn = () => {
 
           // Notify UI to run animations explicitly initiated by user action
           window.dispatchEvent(new Event("checkin-success"));
+          sendSalePostback();
         })
         .catch((err: unknown) => {
           const axiosErr = err as AxiosError | undefined;
@@ -168,6 +175,7 @@ export const useCheckIn = () => {
     checkInRequest,
     state,
     queryClient,
+    useSalePostback
   ]);
 
   return { checkIn, isChecking, error };
