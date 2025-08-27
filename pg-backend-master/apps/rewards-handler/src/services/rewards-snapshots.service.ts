@@ -110,6 +110,12 @@ export class RewardsSnapshotsService {
           pepeBalance: 0,
         },
       );
+      if (pepeBalance <= 0) {
+        return {
+          success: false,
+          text: `$PEPE tokens not found`,
+        };
+      }
       const snapshot = await this.updateHolderRewardsSnapshot(
         {
           address: user.walletAddress,
