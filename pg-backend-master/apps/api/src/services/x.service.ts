@@ -24,7 +24,7 @@ export class XService {
       );
     }
     if (!res.data) {
-      throw new UnprocessableEntityException('Tweet not found');
+      throw new UnprocessableEntityException('Follow not found');
     }
   }
 
