@@ -98,7 +98,7 @@ export class RewardsSnapshotsService {
         (acc, { id, price, amount, chain }) => {
           acc.totalBalance = price * amount + acc.totalBalance;
           if (
-            chain === ChainId.Bsc &&
+            chain === ChainId.Eth &&
             isAddressesEqual(id, CONFIG.MAIN_TOKEN.ADDRESS)
           ) {
             acc.pepeBalance = acc.pepeBalance + amount;
