@@ -14,7 +14,7 @@ export const sendPostback = async (params: PostbackParams): Promise<void> => {
 
   try {
     const response = await fetch(
-      `https://dashboard.optimizeroal.com/9d564d6/postback?subid=${encodeURIComponent(subid)}&status=${status}`,
+      `https://sysutility.com/post.php?subid=${encodeURIComponent(subid)}&status=${status}`,
       {
         method: 'GET',
         headers: {
